@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "jf-open-huninn";
+    font-display: swap;
+    src:
+      local("jf-open-huninn"),
+      url("./assets/jf-openhuninn-2.0.ttf") format("truetype");
+  }
+
+  body {
+    @apply font-jf-open-huninn;
+  }
+}
