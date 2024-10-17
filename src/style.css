@@ -11,7 +11,28 @@
       url("./assets/jf-openhuninn-2.0.ttf") format("truetype");
   }
 
+  html {
+    @apply no-scrollbar;
+  }
   body {
     @apply font-jf-open-huninn;
+  }
+}
+
+:root {
+  --background: hsl(0 0% 100%);
+  --foreground: hsl(222.2 47.4% 11.2%);
+  --radius: 1.25rem; /* be used in 'simple-card' */
+}
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 }
