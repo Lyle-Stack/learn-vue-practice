@@ -1,17 +1,9 @@
 <script setup lang="ts">
-import HelloWorld from "./components/HelloWorld.vue";
+import HomePage from "./components/(home)/HomePage.vue";
 </script>
 
 <template>
-  <div class="block bg-slate-700">
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <HomePage />
 </template>
 
 <style scoped></style>

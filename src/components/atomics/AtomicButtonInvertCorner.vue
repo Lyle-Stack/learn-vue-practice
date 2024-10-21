@@ -54,7 +54,7 @@ const rotate = {
 </script>
 
 <template>
-  <span
+  <div
     class="relative flex items-center justify-center"
     :class="{
       'flex-row-reverse': loc === 'tl' || loc === 'bl',
@@ -62,7 +62,7 @@ const rotate = {
     :style="{ color: textColor }"
     :aria-label="buttonTitle"
   >
-    <span
+    <p
       v-if="buttonTitle"
       class="text-base"
       :class="{
@@ -73,16 +73,16 @@ const rotate = {
       }"
     >
       {{ buttonTitle }}
-    </span>
+    </p>
 
     <!-- padding to create a gap for <slot /> to main content -->
     <div
-      class="relative"
+      class="relative w-fit"
       :class="{
-        'rounded-br-[50%]': loc === 'tl',
-        'rounded-bl-[50%]': loc === 'tr',
-        'rounded-tl-[50%]': loc === 'br',
-        'rounded-tr-[50%]': loc === 'bl',
+        'rounded-br-[var(--radius)]': loc === 'tl',
+        'rounded-bl-[var(--radius)]': loc === 'tr',
+        'rounded-tl-[var(--radius)]': loc === 'br',
+        'rounded-tr-[var(--radius)]': loc === 'bl',
         'pb-[calc(var(--radius)_/_2)] pr-[calc(var(--radius)_/_2)]': loc === 'tl',
         'pb-[calc(var(--radius)_/_2)] pl-[calc(var(--radius)_/_2)]': loc === 'tr',
         'pl-[calc(var(--radius)_/_2)] pt-[calc(var(--radius)_/_2)]': loc === 'br',
@@ -90,7 +90,23 @@ const rotate = {
       }"
       :style="{ backgroundColor: gapColor }"
     >
-      <slot name="corner"></slot>
+      <slot name="corner">
+        <span
+          class="flex size-[calc(var(--radius)_*_2.5)] items-center justify-center rounded-full bg-[var(--primary)] text-[var(--primary-foreground)] transition-transform group-hover:rotate-[-30deg]"
+        >
+          <svg
+            width="31"
+            height="28"
+            class="size-3.5 transition-transform group-hover:scale-125"
+            viewBox="0 0 31 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M0.857198 13.7372L27.9141 13.7372" stroke="currentColor" stroke-width="3"></path>
+            <path d="M15.4561 1.39417L27.9142 13.8522L15.4561 26.3104" stroke="currentColor" stroke-width="3"></path>
+          </svg>
+        </span>
+      </slot>
 
       <!-- vertial corner (y-axis movement) -->
       <svg
@@ -143,5 +159,5 @@ const rotate = {
         <path d="m100,0H0v100C0,44.77,44.77,0,100,0Z" fill="currentColor"></path>
       </svg>
     </div>
-  </span>
+  </div>
 </template>

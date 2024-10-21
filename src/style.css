@@ -22,7 +22,17 @@
 :root {
   --background: hsl(0 0% 100%);
   --foreground: hsl(222.2 47.4% 11.2%);
-  --radius: 1.25rem; /* be used in 'simple-card' */
+  --primary: hsl(222.2 47.4% 11.2%);
+  --primary-foreground: hsl(210 40% 98%);
+  --secondary: #d9db4d;
+  --secondary: var(var(--primary-foreground));
+  --radius: 1.25rem; /* 20px */
+}
+
+@layer components {
+  .screen-width {
+    @apply mx-auto w-[min(100%,_1200px)] px-2.5 sm:px-5 lg:px-10;
+  }
 }
 
 @layer utilities {
