@@ -22,7 +22,7 @@ export type AtomicInvertCornerProps = {
    * only needed if buttonTitle is set
    * @default var(--foreground)
    */
-  textColor?: string;
+  buttonTextColor?: string;
   /**
    * do not forget to set textColor.
    */
@@ -32,9 +32,9 @@ export type AtomicInvertCornerProps = {
 const {
   location = "bottom-right",
   buttonTitle = "",
-  bgColor = "var(--background)",
+  // bgColor = "var(--background)",
   gapColor = "var(--background)",
-  textColor = "var(--foreground)",
+  buttonTextColor = "var(--foreground)",
 } = defineProps<AtomicInvertCornerProps>();
 
 const getInvertCornerLoc = (location: Location): Loc => {
@@ -59,7 +59,7 @@ const rotate = {
     :class="{
       'flex-row-reverse': loc === 'tl' || loc === 'bl',
     }"
-    :style="{ color: textColor }"
+    :style="{ color: buttonTextColor }"
     :aria-label="buttonTitle"
   >
     <p
@@ -83,16 +83,16 @@ const rotate = {
         'rounded-bl-[var(--radius)]': loc === 'tr',
         'rounded-tl-[var(--radius)]': loc === 'br',
         'rounded-tr-[var(--radius)]': loc === 'bl',
-        'pb-[calc(var(--radius)_/_2)] pr-[calc(var(--radius)_/_2)]': loc === 'tl',
-        'pb-[calc(var(--radius)_/_2)] pl-[calc(var(--radius)_/_2)]': loc === 'tr',
-        'pl-[calc(var(--radius)_/_2)] pt-[calc(var(--radius)_/_2)]': loc === 'br',
-        'pr-[calc(var(--radius)_/_2)] pt-[calc(var(--radius)_/_2)]': loc === 'bl',
+        'pb-[var(--card-gap)] pr-[var(--card-gap)]': loc === 'tl',
+        'pb-[var(--card-gap)] pl-[var(--card-gap)]': loc === 'tr',
+        'pl-[var(--card-gap)] pt-[var(--card-gap)]': loc === 'br',
+        'pr-[var(--card-gap)] pt-[var(--card-gap)]': loc === 'bl',
       }"
       :style="{ backgroundColor: gapColor }"
     >
       <slot name="corner">
         <span
-          class="flex size-[calc(var(--radius)_*_2.5)] items-center justify-center rounded-full bg-[var(--primary)] text-[var(--primary-foreground)] transition-transform group-hover:rotate-[-30deg]"
+          class="flex size-[50px] items-center justify-center rounded-full bg-[var(--primary)] text-[var(--primary-foreground)] transition-transform group-hover:rotate-[-30deg]"
         >
           <svg
             width="31"
@@ -143,7 +143,7 @@ const rotate = {
       </svg>
 
       <!-- corner of corner (be used to give option for different background color if needed) -->
-      <svg
+      <!-- <svg
         xmlns="http://www.w3.org/2000/svg"
         class="absolute block w-[var(--radius)] scale-105"
         :class="{
@@ -157,7 +157,7 @@ const rotate = {
         viewBox="0 0 100 100"
       >
         <path d="m100,0H0v100C0,44.77,44.77,0,100,0Z" fill="currentColor"></path>
-      </svg>
+      </svg> -->
     </div>
   </div>
 </template>

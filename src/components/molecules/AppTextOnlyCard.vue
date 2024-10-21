@@ -18,27 +18,27 @@ const {
   href,
   location = "bottom-right",
   buttonTitle = "",
-  cardbgColor = "#0046c7",
+  cardbgColor = "var(--background)",
   bgColor,
   gapColor,
-  textColor,
+  buttonTextColor = "var(--background)",
 } = defineProps<AppSimpleCardProps>();
 </script>
 
 <template>
   <a
     :href="href"
-    class="group relative block size-full w-[max(200px,_100%)] overflow-hidden rounded-[var(--radius)] transition-transform hover:translate-y-[calc(var(--radius)_/_-4)]"
+    class="group relative block size-full w-[max(200px,_100%)] rounded-[var(--radius)] transition-transform hover:translate-y-[calc(var(--card-gap)_/_-2)]"
     :style="{ backgroundColor: cardbgColor }"
   >
-    <div class="block h-full w-full px-[calc(var(--radius)_*_1.5)] py-[var(--radius)]">
+    <div class="relative block size-full overflow-hidden p-[var(--radius)]">
       <slot name="image">
         <span class="block size-full">Your Text Here</span>
       </slot>
     </div>
 
     <div class="absolute bottom-0 right-0">
-      <AtomicButtonInvertCorner :location :buttonTitle :bgColor :gap-color :text-color>
+      <AtomicButtonInvertCorner :location :buttonTitle :bgColor :gapColor :buttonTextColor>
         <template #corner>
           <slot name="corner"></slot>
         </template>

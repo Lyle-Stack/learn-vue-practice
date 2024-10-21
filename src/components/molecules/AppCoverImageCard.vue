@@ -31,9 +31,9 @@ const {
   buttonTitle = "",
   cardbgColor = "#0046c7",
   titleTextColor = "var(--foreground)",
-  bgColor,
+  bgColor = "var(--background)",
   gapColor,
-  textColor,
+  buttonTextColor,
 } = defineProps<AppSimpleCardProps>();
 
 const parallexRef = ref<HTMLElement | undefined>(undefined);
@@ -46,7 +46,6 @@ const handleScrollParallex = () => {
 
   // only update parallex if the div is in view (between 0 to top of screen and bottom of screen - 75% of div height)
   if (toViewTop <= 0 || toViewTop > window.innerHeight - divHeightAtBottomInView) return;
-  console.log(parallexRef.value.getBoundingClientRect().top);
   parallexRef.value.style.transform = `translateY(${(1 - toViewTop / window.innerHeight) * 50}%)`;
 };
 
@@ -63,17 +62,19 @@ onBeforeUnmount(() => {
 <template>
   <a
     :href="href"
-    class="group relative block size-full w-[max(200px,_100%)] overflow-hidden rounded-[var(--radius)] transition-transform hover:translate-y-[calc(var(--radius)_/_-4)]"
-    :style="{ backgroundColor: cardbgColor }"
+    class="group relative block size-full w-[max(200px,_100%)] overflow-hidden transition-transform hover:translate-y-[calc(var(--card-gap)_/_-2)]"
   >
-    <div class="block h-full w-full px-[calc(var(--radius)_*_1.5)] py-[var(--radius)]">
+    <div
+      class="relative block h-full w-full overflow-hidden rounded-[var(--radius)] px-[calc(var(--radius)_*_1.5)] py-[var(--radius)]"
+      :style="{ backgroundColor: cardbgColor }"
+    >
       <h4
         class="relative z-10 block max-w-[calc(100%_-_40px)] text-[clamp(1.5rem,1rem_+_1vw,2.25rem)] font-semibold leading-[1.1] tracking-tighter text-white"
         :style="{ color: titleTextColor }"
       >
         {{ title }}
       </h4>
-      <div class="absolute inset-0 block h-full w-full overflow-visible bg-transparent">
+      <div class="absolute inset-0 block h-full w-full overflow-hidden bg-transparent">
         <div class="block size-full -translate-y-1/2 scale-150 overflow-visible">
           <div ref="parallexRef" class="size-full will-change-transform">
             <slot name="image">
@@ -90,7 +91,7 @@ onBeforeUnmount(() => {
     </div>
 
     <div class="absolute bottom-0 right-0">
-      <AtomicButtonInvertCorner :location :buttonTitle :bgColor :gap-color :text-color>
+      <AtomicButtonInvertCorner :location :buttonTitle :bgColor :gapColor :buttonTextColor>
         <template #corner>
           <slot name="corner"></slot>
         </template>
