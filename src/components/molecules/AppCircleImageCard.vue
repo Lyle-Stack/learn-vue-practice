@@ -40,13 +40,13 @@ const {
 <template>
   <a
     :href="href"
-    class="group relative flex w-[clamp(200px,_100%,_600px)] rounded-[var(--radius)] transition-transform hover:translate-y-[calc(var(--card-gap)_/_-2)]"
+    class="group relative flex min-h-[calc(var(--radius)_*_4)] w-[clamp(200px,_100%,_600px)] rounded-[var(--radius)] transition-transform hover:translate-y-[calc(var(--card-gap)_/_-2)]"
     :class="cardAspectRatioRelatedClasses"
     :style="{ backgroundColor: cardbgColor }"
   >
     <div class="relative block size-full overflow-hidden p-[var(--radius)]">
       <h4
-        class="relative z-10 block h-[40px] text-[clamp(1.5rem,1rem_+_1vw,2.25rem)] font-semibold leading-[1.1] tracking-tighter text-white"
+        class="relative z-10 block text-[clamp(1.5rem,1rem_+_1vw,2.25rem)] font-semibold leading-[1.1] tracking-tighter text-white"
       >
         {{ title }}
       </h4>

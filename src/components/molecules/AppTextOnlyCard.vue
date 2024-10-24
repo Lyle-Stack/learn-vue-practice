@@ -32,9 +32,14 @@ const {
     :style="{ backgroundColor: cardbgColor }"
   >
     <div class="relative block size-full overflow-hidden p-[var(--radius)]">
-      <slot name="image">
-        <span class="block size-full">Your Text Here</span>
-      </slot>
+      <div class="size-full min-h-40 [&>*]:size-full">
+        <slot name="default">
+          <h5 class="leading=[1.1] text-[clamp(1.313rem,_1rem_+_.4vw,_1.625rem)] font-semibold tracking-tighter">
+            <em class="not-italic text-[#d9db4d]">Triskelion</em>
+            . A monthly newsletter covering biotech news and articles from within the Co-Labs community and beyond.
+          </h5>
+        </slot>
+      </div>
     </div>
 
     <div class="absolute bottom-0 right-0">
