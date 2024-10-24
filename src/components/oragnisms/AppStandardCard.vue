@@ -13,9 +13,14 @@ const { href, badgeText, badgeBgColor, titleText, descriptionText } = defineProp
 </script>
 
 <template>
-  <a :href class="group flex flex-col gap-5">
+  <a
+    :href
+    class="group flex flex-col gap-5 transition-transform duration-300 hover:translate-y-[calc(var(--card-gap)_/_-2)]"
+  >
     <div class="relative size-full bg-transparent">
-      <div class="aspect-[4/3] size-full overflow-hidden rounded-[var(--radius)] lg:aspect-square">
+      <div
+        class="aspect-[4/3] size-full overflow-hidden rounded-[var(--radius)] lg:aspect-square [&>*]:transition-transform [&>*]:duration-300 group-hover:[&>*]:scale-105"
+      >
         <slot name="image"></slot>
       </div>
       <span
