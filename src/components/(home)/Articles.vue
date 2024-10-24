@@ -19,7 +19,7 @@ import AppGridCard from "../oragnisms/AppGridCard.vue";
               <img
                 alt="Wood destroying mushroom in wood fabric 100x. Image shot 04/2019. Exact date unknown."
                 src="https://colabs.com.au/_next/image?url=https%3A%2F%2Fcolabs.yourcreative.com.au%2Fwp-content%2Fuploads%2F2023%2F06%2F87591_river_flowing_downstream_over_rocks_By_Omri_Ohana_Artlist_HD-1.jpg&w=3840&q=75"
-                class="block size-full object-cover"
+                class="size-full object-cover"
                 decoding="async"
               />
             </div>
@@ -44,7 +44,7 @@ import AppGridCard from "../oragnisms/AppGridCard.vue";
       </div>
       <div class="aspect-[2/1]">
         <AppCoverImageCard
-          title="Learn, Imagine, Explore – Tune into our podcast"
+          title="Learn, Imagine, Explore - Tune into our podcast"
           href="#"
           title-text-color="var(--background)"
         >

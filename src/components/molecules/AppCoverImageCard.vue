@@ -39,18 +39,27 @@ const {
 const parallexRef = ref<HTMLElement | undefined>(undefined);
 
 const handleScrollParallex = () => {
-  if (!parallexRef.value) return;
-  const toViewTop = parallexRef.value.getBoundingClientRect().top;
-  // div is scalling to 1.5, the center of the new size div is at 75% of the div from top.
-  const divHeightAtBottomInView = parallexRef.value.getBoundingClientRect().height * 0.75;
+  const refComp = parallexRef.value;
+  if (!refComp) return;
 
-  // only update parallex if the div is in view (between 0 to top of screen and bottom of screen - 75% of div height)
-  if (toViewTop <= 0 || toViewTop > window.innerHeight - divHeightAtBottomInView) return;
-  parallexRef.value.style.transform = `translateY(${(1 - toViewTop / window.innerHeight) * 50}%)`;
+  const selfHeight = refComp.getBoundingClientRect().height;
+  const toViewTop = refComp.getBoundingClientRect().top;
+  const parentHeight = refComp.parentElement?.getBoundingClientRect().height;
+  if (!parentHeight) return;
+
+  const moveableHeight = parentHeight - selfHeight;
+
+  // only update parallex effect if entire parent element is in view
+  if (toViewTop <= 0 || toViewTop > window.innerHeight - parentHeight) return;
+
+  // window.innerHeight has to deduct parent height, otherwise refComp will 'jump' a bit
+  // try yourself... original code in the next line
+  // refComp.style.transform = `translateY(${(1 - toViewTop / window.innerHeight) * moveableHeight}px)`;
+  refComp.style.transform = `translateY(${(1 - toViewTop / (window.innerHeight - parentHeight)) * moveableHeight}px)`;
 };
 
 onMounted(() => {
-  handleScrollParallex();
+  // handleScrollParallex();
   window.addEventListener("scroll", handleScrollParallex);
 });
 
@@ -74,18 +83,19 @@ onBeforeUnmount(() => {
       >
         {{ title }}
       </h4>
-      <div class="absolute inset-0 block h-full w-full overflow-hidden bg-transparent">
-        <div class="block size-full -translate-y-1/2 scale-150 overflow-visible">
-          <div ref="parallexRef" class="size-full will-change-transform">
-            <slot name="image">
+      <div class="absolute inset-0 block size-full overflow-hidden bg-transparent">
+        <div ref="parallexRef" class="block">
+          <slot name="image">
+            <!-- only need image element, wrap in div if image is too small (high aspect ratio) -->
+            <div class="scale-150">
               <img
                 src="https://colabs.yourcreative.com.au/wp-content/uploads/2023/07/dragonfly-1.jpg"
                 alt="Dragonfly"
                 srcset=""
                 class="size-full object-cover"
               />
-            </slot>
-          </div>
+            </div>
+          </slot>
         </div>
       </div>
     </div>
