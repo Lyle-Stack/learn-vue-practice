@@ -5,7 +5,7 @@ import AppTextOnlyCard from "../molecules/AppTextOnlyCard.vue";
 </script>
 
 <template>
-  <section class="screen-width pb-10 pt-[60px] sm:pb-20 lg:pt-2.5">
+  <section class="screen-width pt-[60px] lg:pt-2.5">
     <div class="w-full sm:flex sm:flex-row sm:gap-2.5">
       <!-- large image block -->
       <div
@@ -58,11 +58,5 @@ import AppTextOnlyCard from "../molecules/AppTextOnlyCard.vue";
         </div>
       </div>
     </div>
-
-    <h2
-      class="w-full pt-20 text-[clamp(2.125rem,_1.55rem_+_1.6vw,_3.375rem)] leading-[1.1] tracking-tighter sm:pt-40 md:max-w-xl lg:max-w-3xl"
-    >
-      We design, build and run collaborative spaces where bio-led science, technology and people can thrive
-    </h2>
   </section>
 </template>

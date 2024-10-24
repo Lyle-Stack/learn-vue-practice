@@ -3,7 +3,12 @@ import AppCircleImageCard from "../molecules/AppCircleImageCard.vue";
 </script>
 
 <template>
-  <section class="screen-width py-[60px] lg:py-40">
+  <section class="screen-width py-20 lg:py-40">
+    <h2
+      class="w-full pb-10 text-[clamp(2.125rem,_1.55rem_+_1.6vw,_3.375rem)] leading-[1.1] tracking-tighter sm:pb-20 md:max-w-xl lg:max-w-3xl"
+    >
+      We design, build and run collaborative spaces where bio-led science, technology and people can thrive
+    </h2>
     <h2
       class="mb-[30px] inline-block rounded-full border border-[var(--primary)] bg-[var(--background)] px-3.5 py-1 text-lg leading-[1.1] tracking-tighter text-[var(--foreground)]"
     >
