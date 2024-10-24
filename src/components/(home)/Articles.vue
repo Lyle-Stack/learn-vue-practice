@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import AppCircleImageCard from "../molecules/AppCircleImageCard.vue";
 import AppCoverImageCard from "../molecules/AppCoverImageCard.vue";
+import AppGridCard from "../oragnisms/AppGridCard.vue";
 </script>
 
 <template>
   <section class="screen-width">
-    <div class="grid grid-cols-1 grid-rows-3 gap-2.5 sm:grid-cols-2 sm:grid-rows-2">
+    <div class="grid grid-cols-1 gap-2.5 pb-2.5 sm:grid-cols-2">
       <div class="row-span-1 sm:row-span-2">
         <AppCircleImageCard
           card-aspect-ratio-related-classes="h-full"
@@ -58,5 +59,19 @@ import AppCoverImageCard from "../molecules/AppCoverImageCard.vue";
         </AppCoverImageCard>
       </div>
     </div>
+    <AppGridCard
+      badge-text="Beyond the bench"
+      title-text="Shaping Innovation Futures: Uncovering the Infrastructure Required for Resilient and Regenerative Futures in Australia"
+      description-text="On building infrastructure to drive systemic innovation and foster regenerative futures"
+    >
+      <template #image>
+        <img
+          alt="Untitled design (27)"
+          src="https://colabs.com.au/_next/image?url=https%3A%2F%2Fcolabs.yourcreative.com.au%2Fwp-content%2Fuploads%2F2024%2F10%2FUntitled-design-27.png&w=1920&q=75"
+          class="size-full object-cover"
+          decoding="async"
+        />
+      </template>
+    </AppGridCard>
   </section>
 </template>
