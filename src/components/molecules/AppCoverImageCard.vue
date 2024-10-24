@@ -43,6 +43,10 @@ const handleScrollParallex = () => {
   if (!refComp) return;
 
   const selfHeight = refComp.getBoundingClientRect().height;
+  // before image metadata is loaded, height is 0, so wait 100ms to retry
+  // TODO: use IntersectionObserver instead (this setTimeout is dangerous)
+  if (selfHeight === 0) setTimeout(handleScrollParallex, 100);
+
   const toViewTop = refComp.getBoundingClientRect().top;
   const parentHeight = refComp.parentElement?.getBoundingClientRect().height;
   if (!parentHeight) return;
@@ -59,7 +63,7 @@ const handleScrollParallex = () => {
 };
 
 onMounted(() => {
-  // handleScrollParallex();
+  handleScrollParallex();
   window.addEventListener("scroll", handleScrollParallex);
 });
 
@@ -86,8 +90,8 @@ onBeforeUnmount(() => {
       <div class="absolute inset-0 block size-full overflow-hidden bg-transparent">
         <div ref="parallexRef" class="block">
           <slot name="image">
-            <!-- only need image element, wrap in div if image is too small (high aspect ratio) -->
-            <div class="scale-150">
+            <!-- normally, only need image element. wrap in div if image is too small (high aspect ratio) -->
+            <div class="size-[150%] -translate-x-[15%]">
               <img
                 src="https://colabs.yourcreative.com.au/wp-content/uploads/2023/07/dragonfly-1.jpg"
                 alt="Dragonfly"
