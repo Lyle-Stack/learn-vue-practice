@@ -48,14 +48,11 @@ import AppTextOnlyCard from "../molecules/AppTextOnlyCard.vue";
         </div>
         <div class="block min-h-48 w-full flex-1 rounded-[var(--radius)]">
           <AppTextOnlyCard href="#" cardbg-color="#32c58b">
-            <template #image>
-              <div class="min-h-40">
-                <h5 class="leading=[1.1] text-[clamp(1.313rem,_1rem_+_.4vw,_1.625rem)] font-semibold tracking-tighter">
-                  <em class="not-italic text-[#d9db4d]">Triskelion</em>
-                  . A monthly newsletter covering biotech news and articles from within the Co-Labs community and
-                  beyond.
-                </h5>
-              </div>
+            <template #default>
+              <h5 class="leading=[1.1] text-[clamp(1.313rem,_1rem_+_.4vw,_1.625rem)] font-semibold tracking-tighter">
+                <em class="not-italic text-[#d9db4d]">Triskelion</em>
+                . A monthly newsletter covering biotech news and articles from within the Co-Labs community and beyond.
+              </h5>
             </template>
           </AppTextOnlyCard>
         </div>
