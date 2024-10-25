@@ -5,6 +5,7 @@ import OurServices from "./OurServices.vue";
 import Articles from "./Articles.vue";
 import BlogSection from "./BlogSection.vue";
 import ContactSection from "./ContactSection.vue";
+import Footer from "./Footer.vue";
 </script>
 
 <template>
@@ -14,6 +15,7 @@ import ContactSection from "./ContactSection.vue";
   <Articles />
   <BlogSection />
   <ContactSection />
+  <Footer />
 </template>
 
 <style scoped></style>
