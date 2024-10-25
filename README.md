@@ -7,6 +7,10 @@ Designed by Colabs. [Original site](https://colabs.com.au/)
 
 ## Home Page Demonstration
 
+### View on Desktop
+
 ![Home Page View on Pad](https://github.com/Lyle-Stack/learn-vue-practice/blob/main/lyle-stack.github.io_learn-vue-practice_pad.png)
 
-![Home Page View on Phone](https://github.com/Lyle-Stack/learn-vue-practice/blob/main/lyle-stack.github.io_learn-vue-practice_phone.png)
+### View on Mobile
+
+![Home Page View on Phone](https://github.com/Lyle-Stack/learn-vue-practice/blob/main/lyle-stack.github.io_learn-vue-practice_phone.png =414x)
