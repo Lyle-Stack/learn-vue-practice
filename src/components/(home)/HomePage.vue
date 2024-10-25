@@ -4,6 +4,7 @@ import HeroSection from "./HeroSection.vue";
 import OurServices from "./OurServices.vue";
 import Articles from "./Articles.vue";
 import BlogSection from "./BlogSection.vue";
+import ContactSection from "./ContactSection.vue";
 </script>
 
 <template>
@@ -12,7 +13,7 @@ import BlogSection from "./BlogSection.vue";
   <OurServices />
   <Articles />
   <BlogSection />
-  <div class="py-40"></div>
+  <ContactSection />
 </template>
 
 <style scoped></style>

@@ -87,7 +87,7 @@ onBeforeUnmount(() => {
       >
         {{ title }}
       </h4>
-      <div class="absolute inset-0 flex size-full items-end overflow-hidden bg-transparent">
+      <div class="absolute inset-0 flex items-end bg-transparent">
         <div ref="parallexRef" class="block">
           <slot name="image">
             <!-- normally, only need image element. wrap in div if image is too small (high aspect ratio) -->
