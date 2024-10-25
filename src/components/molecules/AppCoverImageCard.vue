@@ -51,7 +51,7 @@ const handleScrollParallex = () => {
   const parentHeight = refComp.parentElement?.getBoundingClientRect().height;
   if (!parentHeight) return;
 
-  const moveableHeight = parentHeight - selfHeight;
+  const moveableHeight = selfHeight - parentHeight;
 
   // only update parallex effect if entire parent element is in view
   if (toViewTop <= 0 || toViewTop > window.innerHeight - parentHeight) return;
@@ -87,7 +87,7 @@ onBeforeUnmount(() => {
       >
         {{ title }}
       </h4>
-      <div class="absolute inset-0 block size-full overflow-hidden bg-transparent">
+      <div class="absolute inset-0 flex size-full items-end overflow-hidden bg-transparent">
         <div ref="parallexRef" class="block">
           <slot name="image">
             <!-- normally, only need image element. wrap in div if image is too small (high aspect ratio) -->
