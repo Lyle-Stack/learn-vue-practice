@@ -37,7 +37,7 @@ onBeforeUnmount(() => {
     <div class="relative aspect-[8/5] w-full overflow-hidden rounded-[var(--radius)] sm:aspect-video lg:w-2/5">
       <!-- following block is a copy-paste from AppCoverImageCard.vue -->
       <div class="absolute inset-0 flex items-end bg-transparent">
-        <div ref="parallexRef" class="block">
+        <div ref="parallexRef" class="block transition-transform duration-75 ease-linear will-change-transform">
           <div class="lg:size-[140%] lg:-translate-x-[13%]">
             <img
               src="https://colabs.yourcreative.com.au/wp-content/uploads/2024/03/CoLabs-IWD-22-scaled-e1711597962490.jpg"
