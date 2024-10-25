@@ -13,4 +13,4 @@ Designed by Colabs. [Original site](https://colabs.com.au/)
 
 ### View on Mobile
 
-![Home Page View on Phone](https://github.com/Lyle-Stack/learn-vue-practice/blob/main/lyle-stack.github.io_learn-vue-practice_phone.png =414x)
+<img src="https://github.com/Lyle-Stack/learn-vue-practice/blob/main/lyle-stack.github.io_learn-vue-practice_phone.png" alt="Home Page View on Phone" style="max-width:414px;"/>
