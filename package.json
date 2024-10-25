@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "echo nojekyll > ./dist/.nojekyll && git add dist/ -f && git commit -m \"Deploy vite to gh-pages\" && git subtree push --prefix dist origin gh-pages"
   },
   "dependencies": {
     "@rushstack/eslint-patch": "^1.10.4",
